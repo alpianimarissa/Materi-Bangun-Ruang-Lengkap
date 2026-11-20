@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Interaktif: Luas Permukaan dan Volume Bangun Ruang</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax untuk Render LaTeX -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .math-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        /* Style tambahan untuk grid latar belakang SVG */
+        .blueprint-bg {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-600 text-white p-2 rounded-lg">
+                    <i data-lucide="box" class="w-6 h-6"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r bg-clip-text text-transparent from-indigo-600 to-purple-600">GeoSpace Interaktif</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-600">
+                <a href="#tujuan" class="hover:text-indigo-600 transition">Tujuan</a>
+                <a href="#warmup" class="hover:text-indigo-600 transition">Warm-Up</a>
+                <a href="#real-world" class="hover:text-indigo-600 transition">Aplikasi</a>
+                <a href="#konsep" class="hover:text-indigo-600 transition">Materi & Asal-Usul</a>
+                <a href="#contoh" class="hover:text-indigo-600 transition">Contoh</a>
+                <a href="#latihan" class="hover:text-indigo-600 transition">Latihan Mandiri</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow space-y-16">
+        
+        <!-- Hero Section & Tujuan Pembelajaran -->
+        <section id="tujuan" class="bg-gradient-to-br from-indigo-900 to-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="relative z-10 max-w-3xl">
+                <span class="bg-indigo-500/30 text-indigo-300 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">Modul Belajar Digital</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold mt-4 leading-tight">Menguasai Luas Permukaan & Volume Bangun Ruang</h1>
+                <p class="text-slate-300 mt-4 text-base md:text-lg">Sebuah petualangan logika untuk memahami bagaimana ruang di sekitar kita diukur, mulai dari bangun tegak, lancip, hingga kesempurnaan bola.</p>
+                
+                <div class="mt-8 border-t border-slate-700/60 pt-6">
+                    <h3 class="text-lg font-bold text-indigo-300 flex items-center gap-2">
+                        <i data-lucide="target" class="w-5 h-5"></i> Tujuan Pembelajaran
+                    </h3>
+                    <ul class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-200">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                            <span>Memahami struktur matematis bangun ruang tegak (Kubus, Balok, Prisma & Tabung), lancip (Limas & Kerucut), dan Bola.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                            <span>Menemukan kembali asal-usul rumus luas permukaan dan volume secara logis dari dasar bangun datar.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                            <span>Menghubungkan geometri ruang dengan berbagai fenomena fisik di kehidupan nyata.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                            <span>Mampu memecahkan masalah kontekstual menggunakan rumus yang telah dibuktikan.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warm-up / Aktivitas Pemantik -->
+        <section id="warmup" class="scroll-mt-20">
+            <div class="border border-slate-200 bg-white rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-950 flex items-center gap-2">
+                        <i data-lucide="flame" class="w-6 h-6 text-orange-500 animate-pulse"></i> Warm-Up: Tantangan Berpikir & Review Prasyarat
+                    </h2>
+                    <p class="text-slate-600 mt-2 text-sm md:text-base">Sebelum melangkah ke dimensi tiga, mari kita segarkan ingatan mengenai luas bangun datar yang telah dipelajari sebelumnya dan menguji intuisi kita!</p>
+                </div>
+
+                <!-- Bagian Review Bangun Datar (Jembatan Prasyarat) -->
+                <div class="bg-indigo-50/50 border border-indigo-100 rounded-xl p-5">
+                    <h3 class="font-bold text-indigo-950 flex items-center gap-2 text-sm md:text-base">
+                        <i data-lucide="shapes" class="w-5 h-5 text-indigo-600"></i> Jembatan Prasyarat: Apakah Kamu Ingat Luas Bangun Datar ini?
+                    </h3>
+                    <p class="text-xs text-slate-600 mt-1">Sebab semua permukaan dimensi tiga tersusun dari gabungan bangun datar di bawah ini!</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                        <!-- Card Persegi -->
+                        <div class="bg-white p-4 rounded-lg border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-indigo-600 tracking-widest uppercase">Bentuk 1</span>
+                                <h4 class="font-bold text-slate-800 text-xs mt-0.5">Persegi (Sisi $s$)</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Memiliki 4 sisi sama panjang dan sudut siku-siku.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-t border-slate-100 text-right">
+                                <span class="text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">$$L = s^2$$</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Persegi Panjang -->
+                        <div class="bg-white p-4 rounded-lg border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-indigo-600 tracking-widest uppercase">Bentuk 2</span>
+                                <h4 class="font-bold text-slate-800 text-xs mt-0.5">Persegi Panjang ($p \times l$)</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Dua pasang sisi sejajar yang saling tegak lurus.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-t border-slate-100 text-right">
+                                <span class="text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">$$L = p \times l$$</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Segitiga -->
+                        <div class="bg-white p-4 rounded-lg border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-indigo-600 tracking-widest uppercase">Bentuk 3</span>
+                                <h4 class="font-bold text-slate-800 text-xs mt-0.5">Segitiga ($a \times t_s$)</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Setengah dari luas persegi panjang/jajar genjang.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-t border-slate-100 text-right">
+                                <span class="text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">$$L = \frac{1}{2} a \cdot t_s$$</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Lingkaran -->
+                        <div class="bg-white p-4 rounded-lg border border-slate-200 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold text-indigo-600 tracking-widest uppercase">Bentuk 4</span>
+                                <h4 class="font-bold text-slate-800 text-xs mt-0.5">Lingkaran (Jari-jari $r$)</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Bangun lengkung dengan keliling $2\pi r$.</p>
+                            </div>
+                            <div class="mt-3 pt-2 border-t border-slate-100 text-right">
+                                <span class="text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">$$L = \pi r^2$$</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Tantangan 1 -->
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">Kasus 1: Pembungkus Kado</span>
+                            <h3 class="font-bold text-slate-800 mt-1">Mengapa bola paling sulit dibungkus rapi?</h3>
+                            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                                Jika Anda membungkus kotak sepatu (balok) dengan kertas kado, Anda bisa melipatnya dengan sangat rapi tanpa kerutan berarti. Namun, saat membungkus bola sepak, kertas kado pasti akan selalu mengerut dan bertumpuk tidak beraturan. Mengapa demikian?
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200">
+                            <button onclick="toggleWarmUp('ans1')" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                                <i data-lucide="help-circle" class="w-4 h-4"></i> Lihat Penjelasan Geometris
+                            </button>
+                            <div id="ans1" class="hidden mt-2 text-xs text-slate-600 bg-indigo-50 p-3 rounded-lg border border-indigo-100 transition-all">
+                                <strong>Penjelasan:</strong> Balok adalah bangun ruang dengan permukaan yang "datar" (bisa direbahkan menjadi jaring-jaring 2 dimensi yang sempurna tanpa distorsi). Sedangkan Bola memiliki kelengkungan ganda di setiap titiknya. Bola tidak memiliki "jaring-jaring datar sempurna", sehingga permukaan 2D (seperti kertas) tidak bisa menutupi permukaan bola tanpa diregangkan, dipotong, atau dikerutkan!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tantangan 2 -->
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">Kasus 2: Berbagi Es Krim</span>
+                            <h3 class="font-bold text-slate-800 mt-1">Satu Tabung vs Tiga Kerucut</h3>
+                            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                                Bayangkan sebuah wadah tabung dan wadah kerucut memiliki <strong>luas alas yang persis sama</strong> dan <strong>tinggi yang persis sama</strong>. Berapa kalikah Anda harus menuangkan es krim dari kerucut hingga wadah tabung tersebut penuh terisi? Cobalah tebak dengan intuisimu!
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200">
+                            <button onclick="toggleWarmUp('ans2')" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                                <i data-lucide="help-circle" class="w-4 h-4"></i> Lihat Jawaban Eksperimen
+                            </button>
+                            <div id="ans2" class="hidden mt-2 text-xs text-slate-600 bg-indigo-50 p-3 rounded-lg border border-indigo-100 transition-all">
+                                <strong>Penjelasan:</strong> Tepat <strong>3 kali</strong>! Secara geometris, volume suatu bangun lancip (seperti kerucut) selalu sepertiga dari volume bangun tegak pasangannya (tabung) jika alas dan tingginya sama. Eksperimen fisik menuangkan air atau pasir membuktikan hubungan istimewa ini.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real Connection -->
+        <section id="real-world" class="scroll-mt-20">
+            <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl p-6 md:p-8 shadow-md">
+                <div class="flex items-center gap-3">
+                    <div class="bg-white/20 p-2 rounded-lg">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold">Koneksi Dunia Nyata: Mengapa Geometri Ini Penting?</h2>
+                </div>
+                <p class="mt-2 text-emerald-100 text-sm md:text-base">Prinsip luas permukaan dan volume bukanlah sekadar deretan rumus di kertas ujian. Struktur-struktur ini memandu arsitek, insinyur, dan alam dalam merancang segalanya:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/10">
+                        <h4 class="font-bold text-emerald-200 text-sm flex items-center gap-1">
+                            <i data-lucide="building" class="w-4 h-4"></i> Arsitektur Efisien (Bangun Tegak)
+                        </h4>
+                        <p class="text-xs text-emerald-50 mt-2 leading-relaxed">
+                            Gedung pencakar langit berbentuk prisma segi empat atau silinder (tabung) memaksimalkan volume ruangan yang dapat digunakan di atas sebidang tanah perkotaan yang terbatas, sekaligus memberikan kestabilan struktural yang optimal.
+                        </p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/10">
+                        <h4 class="font-bold text-emerald-200 text-sm flex items-center gap-1">
+                            <i data-lucide="navigation" class="w-4 h-4"></i> Aerodinamika & Beban (Bangun Lancip)
+                        </h4>
+                        <p class="text-xs text-emerald-50 mt-2 leading-relaxed">
+                            Atap rumah tradisional berbentuk limas memudahkan air hujan dan salju segera luruh ke bawah sehingga struktur atap tidak runtuh menahan beban berat. Ujung roket yang berbentuk kerucut meminimalkan hambatan gesekan udara (aerodinamis).
+                        </p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/10">
+                        <h4 class="font-bold text-emerald-200 text-sm flex items-center gap-1">
+                            <i data-lucide="droplet" class="w-4 h-4"></i> Efisiensi Energi Alam (Bola)
+                        </h4>
+                        <p class="text-xs text-emerald-50 mt-2 leading-relaxed">
+                            Bola adalah bangun ruang unik yang memiliki <strong>luas permukaan terkecil</strong> untuk suatu volume tertentu. Itulah alasan mengapa tetesan air berbentuk bulat (meminimalkan energi permukaan/tegangan permukaan) dan tangki penyimpanan gas berbahaya berbentuk bola untuk mendistribusikan tekanan secara merata.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eksplorasi Konsep secara Detail & Lengkap -->
+        <section id="konsep" class="scroll-mt-20 space-y-10">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl font-extrabold text-slate-900">Eksplorasi Konsep & Asal-usul Rumus</h2>
+                <p class="text-slate-500 mt-2 text-sm">Mari bedah secara matematis, logis, dan visual bagaimana rumus-rumus luas permukaan dan volume diperoleh.</p>
+            </div>
+
+            <!-- Tiga Kategori Navigasi Tab -->
+            <div class="bg-slate-200/60 p-1.5 rounded-xl max-w-md mx-auto grid grid-cols-3 gap-1 text-center font-bold text-xs md:text-sm shadow-inner">
+                <button onclick="switchTab('tegak')" id="btn-tegak" class="tab-btn bg-white text-indigo-600 px-3 py-2.5 rounded-lg shadow-sm transition">Bangun Tegak</button>
+                <button onclick="switchTab('lancip')" id="btn-lancip" class="tab-btn text-slate-600 hover:text-slate-900 px-3 py-2.5 rounded-lg transition">Bangun Lancip</button>
+                <button onclick="switchTab('bola')" id="btn-bola" class="tab-btn text-slate-600 hover:text-slate-900 px-3 py-2.5 rounded-lg transition">Bola</button>
+            </div>
+
+            <!-- TAB CONTENT 1: BANGUN TEGAK -->
+            <div id="tab-tegak" class="tab-content space-y-12">
+                
+                <!-- KUBUS -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Kategori I: Bangun Tegak</span>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-6">1. Kubus</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <!-- Kolom Ilustrasi SVG -->
+                        <div class="lg:col-span-4 blueprint-bg border border-slate-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-inner relative">
+                            <span class="absolute top-3 left-3 bg-indigo-100 text-indigo-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Ilustrasi 3D</span>
+                            <!-- SVG Kubus -->
+                            <svg class="w-full max-w-[200px] h-auto" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="kubusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#a5b4fc" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.6" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Garis tersembunyi belakang (dashed) -->
+                                <line x1="70" y1="130" x2="70" y2="60" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" />
+                                <line x1="70" y1="130" x2="40" y2="170" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" />
+                                <line x1="70" y1="130" x2="150" y2="130" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" />
+                                
+                                <!-- Alas Bawah Kubus -->
+                                <polygon points="40,170 120,170 150,130 70,130" fill="url(#kubusGrad)" opacity="0.2" />
+                                <polyline points="40,170 120,170 150,130" stroke="#4f46e5" stroke-width="2" fill="none" />
+                                
+                                <!-- Dinding Depan, Kanan, Tutup Atas -->
+                                <polygon points="40,100 120,100 150,60 70,60" fill="url(#kubusGrad)" opacity="0.4" stroke="#4f46e5" stroke-width="2" />
+                                <polygon points="40,170 120,170 120,100 40,100" fill="url(#kubusGrad)" opacity="0.3" stroke="#4f46e5" stroke-width="2" />
+                                <polygon points="120,170 150,130 150,60 120,100" fill="url(#kubusGrad)" opacity="0.5" stroke="#4f46e5" stroke-width="2" />
+                                
+                                <!-- Sisi Vertikal Kiri Depan -->
+                                <line x1="40" y1="170" x2="40" y2="100" stroke="#4f46e5" stroke-width="2" />
+                                
+                                <!-- Label Dimensi -->
+                                <text x="80" y="190" fill="#312e81" font-size="11" font-weight="bold">s (sisi)</text>
+                                <text x="145" y="160" fill="#312e81" font-size="11" font-weight="bold">s</text>
+                                <text x="15" y="140" fill="#312e81" font-size="11" font-weight="bold">s (tinggi)</text>
+                                <line x1="30" y1="100" x2="30" y2="170" stroke="#4f46e5" stroke-width="1" stroke-dasharray="2" />
+                            </svg>
+                            <p class="text-xs text-slate-500 mt-3 text-center">Bangun ruang tiga dimensi yang dibatasi oleh enam bidang sisi yang kongruen berbentuk bujur sangkar.</p>
+                        </div>
+                        
+                        <!-- Kolom Materi & Pembahasan Matematika -->
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Luas Permukaan -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-indigo-900 text-base flex items-center gap-1.5 border-b border-indigo-100 pb-2">
+                                        <i data-lucide="layers" class="w-5 h-5 text-indigo-600"></i> Luas Permukaan Kubus
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Konsep Jaring-Jaring:</strong></p>
+                                        <p>Bila jaring-jaring kubus dihamparkan, kita akan mendapatkan tepat <strong>6 buah bujur sangkar (persegi)</strong> yang kongruen dengan panjang sisi masing-masing $s$.</p>
+                                        <p>Karena luas dari satu persegi adalah $L = s \times s = s^2$, maka jumlah seluruh luas penutup luarnya adalah:</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-indigo-600 font-bold text-xs md:text-sm">
+                                    $$L = 6 \times s^2$$
+                                </div>
+                            </div>
+
+                            <!-- Volume -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-indigo-900 text-base flex items-center gap-1.5 border-b border-indigo-100 pb-2">
+                                        <i data-lucide="box" class="w-5 h-5 text-indigo-600"></i> Volume Kubus
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Berdasarkan Konsep Prisma:</strong></p>
+                                        <p>Kubus merupakan prisma tegak segi empat khusus dengan alas persegi dan tinggi prisma yang berukuran tepat sama panjang dengan sisi alas ($t = s$).</p>
+                                        <p>Sesuai dengan rumus umum volume prisma:</p>
+                                        <div class="bg-slate-100 p-2 rounded text-[11px] font-mono">
+                                            $$V = L_{\text{alas}} \times t \implies V = (s \times s) \times s$$
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-indigo-600 font-bold text-xs md:text-sm">
+                                    $$V = s^3$$
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BALOK -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Kategori I: Bangun Tegak</span>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-6">2. Balok</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <!-- Kolom Ilustrasi SVG -->
+                        <div class="lg:col-span-4 blueprint-bg border border-slate-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-inner relative">
+                            <span class="absolute top-3 left-3 bg-indigo-100 text-indigo-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Ilustrasi 3D</span>
+                            <!-- SVG Balok -->
+                            <svg class="w-full max-w-[200px] h-auto" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="balokGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#a5b4fc" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.6" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Garis tersembunyi belakang (dashed) -->
+                                <line x1="60" y1="130" x2="60" y2="80" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" />
+                                <line x1="60" y1="130" x2="30" y2="170" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" />
+                                <line x1="60" y1="130" x2="160" y2="130" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" />
+                                
+                                <!-- Alas Bawah Balok -->
+                                <polygon points="30,170 130,170 160,130 60,130" fill="url(#balokGrad)" opacity="0.2" />
+                                <polyline points="30,170 130,170 160,130" stroke="#4f46e5" stroke-width="2" fill="none" />
+                                
+                                <!-- Dinding Depan, Kanan, Tutup Atas -->
+                                <polygon points="30,120 130,120 160,80 60,80" fill="url(#balokGrad)" opacity="0.4" stroke="#4f46e5" stroke-width="2" />
+                                <polygon points="30,170 130,170 130,120 30,120" fill="url(#balokGrad)" opacity="0.3" stroke="#4f46e5" stroke-width="2" />
+                                <polygon points="130,170 160,130 160,80 130,120" fill="url(#balokGrad)" opacity="0.5" stroke="#4f46e5" stroke-width="2" />
+                                
+                                <!-- Sisi Vertikal Kiri Depan -->
+                                <line x1="30" y1="170" x2="30" y2="120" stroke="#4f46e5" stroke-width="2" />
+                                
+                                <!-- Label Dimensi -->
+                                <text x="75" y="190" fill="#312e81" font-size="11" font-weight="bold">p (panjang)</text>
+                                <text x="150" y="160" fill="#312e81" font-size="11" font-weight="bold">l (lebar)</text>
+                                <text x="10" y="115" fill="#312e81" font-size="11" font-weight="bold">t (tinggi)</text>
+                                <line x1="20" y1="120" x2="20" y2="170" stroke="#4f46e5" stroke-width="1" stroke-dasharray="2" />
+                            </svg>
+                            <p class="text-xs text-slate-500 mt-3 text-center">Prisma tegak segi empat yang dibatasi oleh tiga pasang persegi panjang yang kongruen.</p>
+                        </div>
+                        
+                        <!-- Kolom Materi & Pembahasan Matematika -->
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Luas Permukaan -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-indigo-900 text-base flex items-center gap-1.5 border-b border-indigo-100 pb-2">
+                                        <i data-lucide="layers" class="w-5 h-5 text-indigo-600"></i> Luas Permukaan Balok
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Berdasarkan 3 Pasang Bidang Sejajar:</strong></p>
+                                        <p>Balok memiliki 6 sisi berbentuk persegi panjang di mana sisi yang berhadapan berukuran persis sama:</p>
+                                        <ul class="list-disc list-inside space-y-1 pl-1">
+                                            <li>2 Sisi Alas & Atap: $2 \times (p \times l)$</li>
+                                            <li>2 Sisi Depan & Belakang: $2 \times (p \times t)$</li>
+                                            <li>2 Sisi Samping Kiri & Kanan: $2 \times (l \times t)$</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-indigo-600 font-bold text-xs md:text-sm">
+                                    $$L = 2(pl + pt + lt)$$
+                                </div>
+                            </div>
+
+                            <!-- Volume -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-indigo-900 text-base flex items-center gap-1.5 border-b border-indigo-100 pb-2">
+                                        <i data-lucide="box" class="w-5 h-5 text-indigo-600"></i> Volume Balok
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Aplikasi Prinsip Dasar Prisma:</strong></p>
+                                        <p>Volume diperoleh dengan mengalikan luas alas dengan tinggi balok.</p>
+                                        <p>Karena alas balok berbentuk persegi panjang berukuran panjang $p$ dan lebar $l$, maka luas alasnya adalah $L_a = p \times l$. Jika balok ditumpuk setinggi $t$, formulanya menjadi:</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-indigo-600 font-bold text-xs md:text-sm">
+                                    $$V = p \times l \times t$$
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. PRISMA -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Kategori I: Bangun Tegak</span>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-6">3. Prisma Tegak Segitiga</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <!-- Kolom Ilustrasi SVG -->
+                        <div class="lg:col-span-4 blueprint-bg border border-slate-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-inner relative">
+                            <span class="absolute top-3 left-3 bg-indigo-100 text-indigo-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Ilustrasi 3D</span>
+                            <!-- SVG Prisma Segitiga -->
+                            <svg class="w-full max-w-[200px] h-auto" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="prismaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#818cf8" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.6" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Sisi belakang / tersembunyi (dashed) -->
+                                <polyline points="70,150 130,120" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" fill="none" />
+                                <line x1="70" y1="150" x2="70" y2="50" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" />
+                                
+                                <!-- Alas Bawah -->
+                                <polygon points="30,180 130,120 150,180" fill="url(#prismaGrad)" opacity="0.3" />
+                                <polyline points="30,180 70,150 150,180" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="4" fill="none" />
+                                <polyline points="30,180 130,120 150,180" stroke="#4f46e5" stroke-width="2" fill="none" />
+                                
+                                <!-- Sisi Tegak Selubung -->
+                                <line x1="30" y1="180" x2="30" y2="80" stroke="#4f46e5" stroke-width="2" />
+                                <line x1="130" y1="120" x2="130" y2="20" stroke="#4f46e5" stroke-width="2" />
+                                <line x1="150" y1="180" x2="150" y2="80" stroke="#4f46e5" stroke-width="2" />
+                                
+                                <!-- Tutup Atas -->
+                                <polygon points="30,80 130,20 150,80" fill="url(#prismaGrad)" opacity="0.5" />
+                                <polygon points="30,80 130,20 150,80" stroke="#4f46e5" stroke-width="2" fill="none" />
+                                <polyline points="30,80 70,50 150,80" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="4" fill="none" />
+
+                                <!-- Label Dimensi -->
+                                <text x="10" y="130" fill="#4f46e5" font-size="12" font-weight="bold">t (tinggi)</text>
+                                <line x1="20" y1="80" x2="20" y2="180" stroke="#4f46e5" stroke-width="1" stroke-dasharray="3" />
+                                <polygon points="20,80 18,84 22,84" fill="#4f46e5" />
+                                <polygon points="20,180 18,176 22,176" fill="#4f46e5" />
+
+                                <!-- Label Alas -->
+                                <text x="85" y="200" fill="#312e81" font-size="11" font-weight="semibold">Alas Segitiga ($L_a$)</text>
+                                <text x="85" y="10" fill="#312e81" font-size="11" font-weight="semibold">Tutup Atas</text>
+                            </svg>
+                            <p class="text-xs text-slate-500 mt-3 text-center">Permukaan tegak lurus yang menghubungkan dua alas segitiga kongruen.</p>
+                        </div>
+                        
+                        <!-- Kolom Materi & Pembahasan Matematika -->
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Luas Permukaan -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-indigo-900 text-base flex items-center gap-1.5 border-b border-indigo-100 pb-2">
+                                        <i data-lucide="layers" class="w-5 h-5 text-indigo-600"></i> Luas Permukaan Prisma
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Konsep Jaring-Jaring:</strong> Ketika seluruh sisinya dihamparkan ke bidang datar, kita memperoleh:</p>
+                                        <ul class="list-disc list-inside space-y-1 pl-1">
+                                            <li>2 bidang segitiga kongruen (Alas & Tutup).</li>
+                                            <li>3 buah bidang persegi panjang tegak yang menyusun selimut dengan lebar sisi-sisi alas dan panjangnya berupa tinggi prisma ($t$).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-indigo-600 font-bold text-xs md:text-sm">
+                                    $$L = (2 \times L_a) + (K_a \times t)$$
+                                </div>
+                            </div>
+
+                            <!-- Volume -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-indigo-900 text-base flex items-center gap-1.5 border-b border-indigo-100 pb-2">
+                                        <i data-lucide="box" class="w-5 h-5 text-indigo-600"></i> Volume Prisma
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Asal-Usul (Prinsip Cavalieri):</strong></p>
+                                        <p>Bayangkan sebuah koin tipis atau lembaran kertas bertumpuk ke atas setinggi $t$. Volume tumpukan dihitung dengan mengalikan luas dasar lembaran tunggal tersebut ($L_a$) dikalikan tingginya ($t$).</p>
+                                        <p>Hal ini berlaku untuk semua bangun tegak berpenampang melintang seragam.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-indigo-600 font-bold text-xs md:text-sm">
+                                    $$V = L_a \times t$$
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. TABUNG -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Kategori I: Bangun Tegak</span>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-6">4. Tabung (Silinder)</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <!-- Kolom Ilustrasi SVG -->
+                        <div class="lg:col-span-4 blueprint-bg border border-slate-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-inner relative">
+                            <span class="absolute top-3 left-3 bg-indigo-100 text-indigo-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Ilustrasi 3D</span>
+                            <!-- SVG Tabung -->
+                            <svg class="w-full max-w-[200px] h-auto" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="tabungGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.7" />
+                                        <stop offset="50%" stop-color="#818cf8" stop-opacity="0.3" />
+                                        <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.8" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Tubuh Tabung (Cylinder Body) -->
+                                <rect x="40" y="50" width="120" height="120" fill="url(#tabungGrad)" />
+                                
+                                <!-- Lingkaran Tutup Atas -->
+                                <ellipse cx="100" cy="50" rx="60" ry="20" fill="#818cf8" opacity="0.4" stroke="#4f46e5" stroke-width="2" />
+                                <circle cx="100" cy="50" r="1.5" fill="#4f46e5" />
+                                
+                                <!-- Lingkaran Alas Bawah (Belakang putus-putus, depan tebal) -->
+                                <path d="M 40,170 A 60,20 0 0,0 160,170" stroke="#4f46e5" stroke-width="2" fill="none" />
+                                <path d="M 40,170 A 60,20 0 0,1 160,170" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" fill="none" />
+                                
+                                <!-- Sisi Tegak Kiri-Kanan -->
+                                <line x1="40" y1="50" x2="40" y2="170" stroke="#4f46e5" stroke-width="2" />
+                                <line x1="160" y1="50" x2="160" y2="170" stroke="#4f46e5" stroke-width="2" />
+                                
+                                <!-- Garis Dimensi Jari-Jari (r) -->
+                                <line x1="100" y1="50" x2="160" y2="50" stroke="#e11d48" stroke-width="1.5" />
+                                <circle cx="100" cy="50" r="2.5" fill="#e11d48" />
+                                <text x="125" y="42" fill="#e11d48" font-size="11" font-weight="bold">r</text>
+                                
+                                <!-- Garis Dimensi Tinggi (t) -->
+                                <line x1="175" y1="50" x2="175" y2="170" stroke="#4f46e5" stroke-width="1.2" />
+                                <polygon points="175,50 172,55 178,55" fill="#4f46e5" />
+                                <polygon points="175,170 172,165 178,165" fill="#4f46e5" />
+                                <text x="182" y="115" fill="#4f46e5" font-size="11" font-weight="bold">t</text>
+                            </svg>
+                            <p class="text-xs text-slate-500 mt-3 text-center">Bentuk khusus prisma tegak dengan alas berbentuk lingkaran sempurna.</p>
+                        </div>
+                        
+                        <!-- Kolom Materi & Pembahasan Matematika -->
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Luas Permukaan -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-indigo-900 text-base flex items-center gap-1.5 border-b border-indigo-100 pb-2">
+                                        <i data-lucide="layers" class="w-5 h-5 text-indigo-600"></i> Luas Permukaan Tabung
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Dua Komponen Utama Jaring-Jaring:</strong></p>
+                                        <ul class="list-disc list-inside space-y-1 pl-1">
+                                            <li><strong>2 Lingkaran:</strong> Bagian alas dan tutup masing-masing memiliki luas $\pi r^2$.</li>
+                                            <li><strong>Selimut Tabung:</strong> Berupa persegi panjang melengkung yang jika digelar memiliki panjang setara Keliling Lingkaran ($2\pi r$) dan tinggi $t$. Luas Selimut = $2\pi r t$.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-indigo-600 font-bold text-xs md:text-sm">
+                                    $$L = 2\pi r^2 + 2\pi rt = 2\pi r(r + t)$$
+                                </div>
+                            </div>
+
+                            <!-- Volume -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-indigo-900 text-base flex items-center gap-1.5 border-b border-indigo-100 pb-2">
+                                        <i data-lucide="box" class="w-5 h-5 text-indigo-600"></i> Volume Tabung
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Pendekatan Limit Poligon:</strong></p>
+                                        <p>Jika kita memperbanyak jumlah segi-$n$ pada alas suatu prisma hingga tak terhingga ($n \to \infty$), bentuk alas berangsur-angsur bertransformasi membentuk lingkaran.</p>
+                                        <p>Oleh karena itu, volume tabung secara identik diturunkan dari rumus umum volume prisma ($V = L_a \times t$):</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-indigo-600 font-bold text-xs md:text-sm">
+                                    $$V = \pi r^2 t$$
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT 2: BANGUN LANCIP -->
+            <div id="tab-lancip" class="tab-content hidden space-y-12">
+                
+                <!-- 1. LIMAS SEGI EMPAT -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                    <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Kategori II: Bangun Lancip</span>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-6">1. Limas Segi Empat Beraturan</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <!-- Kolom Ilustrasi SVG -->
+                        <div class="lg:col-span-4 blueprint-bg border border-slate-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-inner relative">
+                            <span class="absolute top-3 left-3 bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Ilustrasi 3D</span>
+                            <!-- SVG Limas -->
+                            <svg class="w-full max-w-[200px] h-auto" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="limasGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#c084fc" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.4" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Garis tersembunyi belakang (dashed) -->
+                                <polyline points="60,140 140,140" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" fill="none" />
+                                <line x1="60" y1="140" x2="30" y2="180" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" />
+                                <line x1="100" y1="30" x2="60" y2="140" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" />
+                                <line x1="100" y1="30" x2="100" y2="155" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3" /> <!-- Tinggi (t) -->
+                                
+                                <!-- Alas Limas Segi Empat -->
+                                <polygon points="30,180 110,180 140,140 60,140" fill="url(#limasGrad)" opacity="0.2" />
+                                
+                                <!-- Sisi Segitiga Selimut Depan -->
+                                <polygon points="100,30 30,180 110,180" fill="url(#limasGrad)" opacity="0.4" stroke="#7c3aed" stroke-width="2" />
+                                <polygon points="100,30 110,180 140,140" fill="url(#limasGrad)" opacity="0.6" stroke="#7c3aed" stroke-width="2" />
+                                
+                                <!-- Garis Tinggi Selimut (hs) -->
+                                <line x1="100" y1="30" x2="125" y2="160" stroke="#db2777" stroke-width="1.5" stroke-dasharray="3" />
+                                <circle cx="125" cy="160" r="2" fill="#db2777" />
+
+                                <!-- Label Dimensi -->
+                                <text x="80" y="95" fill="#7c3aed" font-size="11" font-weight="bold">t</text>
+                                <text x="120" y="90" fill="#db2777" font-size="11" font-weight="bold">h_s</text>
+                                <text x="65" y="195" fill="#312e81" font-size="11" font-weight="bold">s (sisi alas)</text>
+                            </svg>
+                            <p class="text-xs text-slate-500 mt-3 text-center">Bangun runcing dengan alas datar dan sisi selubung berbentuk segitiga.</p>
+                        </div>
+                        
+                        <!-- Kolom Materi & Pembahasan Matematika -->
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Luas Permukaan -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-purple-900 text-base flex items-center gap-1.5 border-b border-purple-100 pb-2">
+                                        <i data-lucide="layers" class="w-5 h-5 text-purple-600"></i> Luas Permukaan Limas
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Komposisi Bidang Jaring-jaring:</strong></p>
+                                        <p>Terdiri atas sebuah bidang alas segi-$n$ ditambah sejumlah $n$ buah bidang segitiga tegak sebagai penutup selimutnya.</p>
+                                        <p class="text-xs text-slate-500"><em>Penting:</em> Tinggi segitiga tegak selimut ($h_s$) didapat melalui Teorema Pythagoras: $h_s = \sqrt{t^2 + (\frac{1}{2}s)^2}$.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-purple-600 font-bold text-xs md:text-sm">
+                                    $$L = L_{\text{alas}} + \sum (L_{\text{segitiga tegak}})$$
+                                </div>
+                            </div>
+
+                            <!-- Volume -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-purple-900 text-base flex items-center gap-1.5 border-b border-purple-100 pb-2">
+                                        <i data-lucide="box" class="w-5 h-5 text-purple-600"></i> Volume Limas
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Asal-Usul Pembagian Kubus:</strong></p>
+                                        <p>Jika ditarik diagonal-diagonal ruang pada sebuah kubus, maka bagian dalam kubus akan terbagi secara presisi menjadi <strong>6 limas berukuran sama</strong>.</p>
+                                        <p>Melalui persamaan algebrais tersebut, terbukti volume satu limas adalah sepertiga dari perkalian alas dengan tingginya.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-purple-600 font-bold text-xs md:text-sm">
+                                    $$V = \frac{1}{3} \times L_a \times t$$
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. KERUCUT -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                    <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Kategori II: Bangun Lancip</span>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-6">2. Kerucut (Limas Lingkaran)</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <!-- Kolom Ilustrasi SVG -->
+                        <div class="lg:col-span-4 blueprint-bg border border-slate-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-inner relative">
+                            <span class="absolute top-3 left-3 bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Ilustrasi 3D</span>
+                            <!-- SVG Kerucut -->
+                            <svg class="w-full max-w-[200px] h-auto" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="kerucutGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.8" />
+                                        <stop offset="50%" stop-color="#c084fc" stop-opacity="0.3" />
+                                        <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.9" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Selimut Kerucut -->
+                                <polygon points="100,30 40,170 160,170" fill="url(#kerucutGrad)" />
+                                <line x1="100" y1="30" x2="40" y2="170" stroke="#7c3aed" stroke-width="2" />
+                                <line x1="100" y1="30" x2="160" y2="170" stroke="#7c3aed" stroke-width="2" />
+                                
+                                <!-- Alas Lingkaran (depan solid, belakang dashed) -->
+                                <path d="M 40,170 A 60,20 0 0,0 160,170" stroke="#7c3aed" stroke-width="2" fill="none" />
+                                <path d="M 40,170 A 60,20 0 0,1 160,170" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4" fill="none" />
+                                
+                                <!-- Tinggi Tegak t (dashed) -->
+                                <line x1="100" y1="30" x2="100" y2="170" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3" />
+                                <circle cx="100" cy="170" r="2" fill="#7c3aed" />
+                                
+                                <!-- Jari-jari alas r -->
+                                <line x1="100" y1="170" x2="160" y2="170" stroke="#e11d48" stroke-width="1.5" />
+                                <text x="125" y="165" fill="#e11d48" font-size="11" font-weight="bold">r</text>
+                                
+                                <!-- Label Dimensi -->
+                                <text x="85" y="105" fill="#7c3aed" font-size="11" font-weight="bold">t</text>
+                                <text x="135" y="95" fill="#312e81" font-size="11" font-weight="bold">s</text>
+                                <text x="142" y="105" fill="#64748b" font-size="9">(garis pelukis)</text>
+                            </svg>
+                            <p class="text-xs text-slate-500 mt-3 text-center">Metamorfosis dari limas segi-$n$ saat jumlah sisinya tak terhingga.</p>
+                        </div>
+                        
+                        <!-- Kolom Materi & Pembahasan Matematika -->
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Luas Permukaan -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-purple-900 text-base flex items-center gap-1.5 border-b border-purple-100 pb-2">
+                                        <i data-lucide="layers" class="w-5 h-5 text-purple-600"></i> Luas Permukaan Kerucut
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Derivasi Juring Selimut:</strong></p>
+                                        <p>Selimut kerucut berupa potongan sektor lingkaran besar berjejari $s$. Dengan perbandingan proporsional sudut busur lingkaran didapatkan luas selimut sebesar $\pi r s$.</p>
+                                        <p class="text-xs text-slate-500"><em>Aturan Pythagoras:</em> Garis pelukis $s = \sqrt{r^2 + t^2}$.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-purple-600 font-bold text-xs md:text-sm">
+                                    $$L = \pi r^2 + \pi r s = \pi r (r + s)$$
+                                </div>
+                            </div>
+
+                            <!-- Volume -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-purple-900 text-base flex items-center gap-1.5 border-b border-purple-100 pb-2">
+                                        <i data-lucide="box" class="w-5 h-5 text-purple-600"></i> Volume Kerucut
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Hubungan Eksperimental:</strong></p>
+                                        <p>Tepat diperlukan tiga kali tuangan penuh wadah kerucut berisi zat cair untuk memenuhi wadah tabung berdimensi tinggi dan alas yang identik.</p>
+                                        <p>Maka, volumenya sepertiga dari tabung.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-purple-600 font-bold text-xs md:text-sm">
+                                    $$V = \frac{1}{3} \pi r^2 t$$
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT 3: BOLA -->
+            <div id="tab-bola" class="tab-content hidden space-y-12">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+                    <span class="text-xs font-bold text-rose-600 uppercase tracking-widest">Kategori III: Bola</span>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-6">Satu-Satunya Tanpa Sisi Datar: Bola</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        <!-- Kolom Ilustrasi SVG -->
+                        <div class="lg:col-span-4 blueprint-bg border border-slate-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-inner relative">
+                            <span class="absolute top-3 left-3 bg-rose-100 text-rose-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Ilustrasi 3D</span>
+                            <!-- SVG Bola -->
+                            <svg class="w-full max-w-[200px] h-auto" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <!-- Radial Gradient untuk Shading 3D Realistis -->
+                                    <radialGradient id="bolaShading" cx="30%" cy="30%" r="70%">
+                                        <stop offset="0%" stop-color="#fda4af" />
+                                        <stop offset="50%" stop-color="#f43f5e" />
+                                        <stop offset="100%" stop-color="#9f1239" />
+                                    </radialGradient>
+                                </defs>
+                                <!-- Sfera Utama -->
+                                <circle cx="100" cy="110" r="70" fill="url(#bolaShading)" opacity="0.85" stroke="#f43f5e" stroke-width="1.5" />
+                                
+                                <!-- Lingkaran Sabuk Horizontal (Khatulistiwa) -->
+                                <path d="M 30,110 A 70,22 0 0,0 170,110" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.7" />
+                                <path d="M 30,110 A 70,22 0 0,1 170,110" stroke="#fff" stroke-width="1" stroke-dasharray="3" fill="none" opacity="0.5" />
+                                
+                                <!-- Titik Pusat & Jari-jari -->
+                                <circle cx="100" cy="110" r="3" fill="#fff" />
+                                <line x1="100" y1="110" x2="170" y2="110" stroke="#fff" stroke-width="2" />
+                                <text x="135" y="102" fill="#fff" font-size="12" font-weight="bold">r</text>
+                            </svg>
+                            <p class="text-xs text-slate-500 mt-3 text-center">Bentuk ruang simetris sempurna di mana semua titik permukaan luar berjarak sama ($r$) dari pusat.</p>
+                        </div>
+                        
+                        <!-- Kolom Materi & Pembahasan Matematika -->
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Luas Permukaan -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-rose-900 text-base flex items-center gap-1.5 border-b border-rose-100 pb-2">
+                                        <i data-lucide="layers" class="w-5 h-5 text-rose-600"></i> Luas Permukaan Bola
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Eksperimen Historis Archimedes:</strong></p>
+                                        <p>Archimedes membuktikan secara brilian bahwa luas selimut bola setara secara presisi dengan selimut tabung pembungkus terluar yang menyelubungi bola tersebut ($t = 2r$ dan $R_{\text{tabung}} = r$).</p>
+                                        <p>Secara praktis, potongan kulit jeruk bola penuh pas menutup empat kali luas lingkaran dasarnya.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-rose-600 font-bold text-xs md:text-sm">
+                                    $$L = 4\pi r^2$$
+                                </div>
+                            </div>
+
+                            <!-- Volume -->
+                            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="font-bold text-rose-900 text-base flex items-center gap-1.5 border-b border-rose-100 pb-2">
+                                        <i data-lucide="box" class="w-5 h-5 text-rose-600"></i> Volume Bola
+                                    </h4>
+                                    <div class="mt-4 space-y-3 text-xs md:text-sm text-slate-700 leading-relaxed">
+                                        <p><strong>Asal-Usul Integrasi Piramida Mikro:</strong></p>
+                                        <p>Isi dalam bola dapat diuraikan sebagai jutaan piramida mikro berujung di inti bola dengan tinggi $r$.</p>
+                                        <p>Ketika semua volume piramida dijumlahkan secara integral, rasio volume bola terkristal menjadi rumus pecahan empat pertiga.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 text-center font-mono my-3 text-rose-600 font-bold text-xs md:text-sm">
+                                    $$V = \frac{4}{3}\pi r^3$$
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contoh Soal Interaktif -->
+        <section id="contoh" class="scroll-mt-20">
+            <div class="border border-slate-200 bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+                <div class="flex items-center gap-3">
+                    <div class="bg-amber-100 p-2.5 rounded-xl text-amber-600">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Contoh Soal & Pembahasan Langkah demi Langkah</h2>
+                        <p class="text-sm text-slate-500 mt-0.5">Pelajari cara sistematis menyelesaikan problem bangun ruang.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 space-y-6">
+                    <!-- Contoh Soal 1 -->
+                    <div class="border border-slate-100 bg-slate-50/50 rounded-xl p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2.5 py-1 rounded">Tingkat Dasar (Tabung)</span>
+                            <span class="text-slate-500 text-xs">Soal #1</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 mt-3 text-sm md:text-base leading-relaxed">
+                            Sebuah kaleng cat silinder memiliki jari-jari alas $7\text{ cm}$ dan tinggi $20\text{ cm}$. Hitunglah volume cat maksimal yang dapat ditampung kaleng tersebut! (Gunakan $\pi = \frac{22}{7}$)
+                        </h3>
+                        <div class="mt-4">
+                            <button onclick="toggleAccordion('pembahasan1')" class="bg-white border border-slate-200 hover:border-slate-300 text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-2 shadow-sm transition">
+                                <i data-lucide="eye" class="w-4 h-4 text-indigo-600"></i> <span id="text-pembahasan1">Tampilkan Pembahasan</span>
+                            </button>
+                            <div id="pembahasan1" class="hidden mt-4 text-xs md:text-sm text-slate-700 space-y-3 bg-white p-5 rounded-lg border border-slate-100">
+                                <p class="font-bold text-slate-900">Langkah Penyelesaian:</p>
+                                <ol class="list-decimal list-inside space-y-2">
+                                    <li><strong>Identifikasi Variabel:</strong>
+                                        <ul class="list-disc list-inside pl-4 mt-1 space-y-0.5">
+                                            <li>Jari-jari alas ($r$) = $7\text{ cm}$</li>
+                                            <li>Tinggi tabung ($t$) = $20\text{ cm}$</li>
+                                            <li>Pendekatan $\pi = \frac{22}{7}$</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Tulis Rumus Volume Tabung:</strong>
+                                        <div class="my-2 text-indigo-600 font-mono font-bold">
+                                            $$V = \pi r^2 t$$
+                                        </div>
+                                    </li>
+                                    <li><strong>Substitusikan Nilai & Hitung:</strong>
+                                        <div class="my-2 bg-slate-50 p-2 rounded text-xs font-mono">
+                                            $$\begin{align}
+                                            V &= \frac{22}{7} \times (7)^2 \times 20 \\
+                                            V &= \frac{22}{7} \times 49 \times 20 \\
+                                            V &= (22 \times 7) \times 20 \\
+                                            V &= 154 \times 20 = 3080\text{ cm}^3
+                                            \end{align}$$
+                                        </div>
+                                    </li>
+                                </ol>
+                                <p class="text-emerald-600 font-bold mt-2">✓ Jadi, volume cat maksimal yang dapat ditampung adalah $3.080\text{ cm}^3$.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contoh Soal 2 -->
+                    <div class="border border-slate-100 bg-slate-50/50 rounded-xl p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-2.5 py-1 rounded">Tingkat Menengah (Kerucut)</span>
+                            <span class="text-slate-500 text-xs">Soal #2</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 mt-3 text-sm md:text-base leading-relaxed">
+                            Sebuah tumpukan pasir berbentuk kerucut memiliki diameter alas $12\text{ meter}$ dan tinggi $8\text{ meter}$. Tentukan luas permukaan terpal minimal yang diperlukan untuk menutupi seluruh permukaan miring tumpukan pasir tersebut! (Gunakan $\pi = 3,14$)
+                        </h3>
+                        <div class="mt-4">
+                            <button onclick="toggleAccordion('pembahasan2')" class="bg-white border border-slate-200 hover:border-slate-300 text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-2 shadow-sm transition">
+                                <i data-lucide="eye" class="w-4 h-4 text-purple-600"></i> <span id="text-pembahasan2">Tampilkan Pembahasan</span>
+                            </button>
+                            <div id="pembahasan2" class="hidden mt-4 text-xs md:text-sm text-slate-700 space-y-3 bg-white p-5 rounded-lg border border-slate-100">
+                                <p class="font-bold text-slate-900">Langkah Penyelesaian:</p>
+                                <ol class="list-decimal list-inside space-y-2">
+                                    <li><strong>Identifikasi Variabel:</strong>
+                                        <ul class="list-disc list-inside pl-4 mt-1 space-y-0.5">
+                                            <li>Diameter ($d$) = $12\text{ m} \implies$ Jari-jari ($r$) = $6\text{ m}$</li>
+                                            <li>Tinggi kerucut ($t$) = $8\text{ m}$</li>
+                                            <li>$\pi = 3,14$</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Cari Panjang Garis Pelukis ($s$) Menggunakan Teorema Pythagoras:</strong>
+                                        <div class="my-2 bg-slate-50 p-2 rounded text-xs font-mono">
+                                            $$s = \sqrt{r^2 + t^2} = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10\text{ m}$$
+                                        </div>
+                                    </li>
+                                    <li><strong>Hitung Luas Selimut Kerucut saja (Tanpa alas, karena terpal hanya menutupi tumpukan atasnya):</strong>
+                                        <div class="my-2 text-purple-600 font-mono font-bold">
+                                            $$L_{\text{selimut}} = \pi r s$$
+                                        </div>
+                                        <div class="my-2 bg-slate-50 p-2 rounded text-xs font-mono">
+                                            $$L_{\text{selimut}} = 3,14 \times 6 \times 10 = 3,14 \times 60 = 188,4\text{ m}^2$$
+                                        </div>
+                                    </li>
+                                </ol>
+                                <p class="text-emerald-600 font-bold mt-2">✓ Jadi, luas terpal minimal yang diperlukan adalah $188,4\text{ m}^2$.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contoh Soal 3 -->
+                    <div class="border border-slate-100 bg-slate-50/50 rounded-xl p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-rose-100 text-rose-700 text-xs font-bold px-2.5 py-1 rounded">Tingkat Analisis (Bola)</span>
+                            <span class="text-slate-500 text-xs">Soal #3</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 mt-3 text-sm md:text-base leading-relaxed">
+                            Sebuah balon karet berbentuk bola ditiup secara bertahap sehingga jari-jarinya bertambah dari $10\text{ cm}$ menjadi $20\text{ cm}$. Berapa kali lipatkah volume balon tersebut sekarang dibandingkan semula?
+                        </h3>
+                        <div class="mt-4">
+                            <button onclick="toggleAccordion('pembahasan3')" class="bg-white border border-slate-200 hover:border-slate-300 text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-2 shadow-sm transition">
+                                <i data-lucide="eye" class="w-4 h-4 text-rose-600"></i> <span id="text-pembahasan3">Tampilkan Pembahasan</span>
+                            </button>
+                            <div id="pembahasan3" class="hidden mt-4 text-xs md:text-sm text-slate-700 space-y-3 bg-white p-5 rounded-lg border border-slate-100">
+                                <p class="font-bold text-slate-900">Langkah Penyelesaian:</p>
+                                <ol class="list-decimal list-inside space-y-2">
+                                    <li><strong>Identifikasi Variabel:</strong>
+                                        <ul class="list-disc list-inside pl-4 mt-1 space-y-0.5">
+                                            <li>Jari-jari mula-mula ($r_1$) = $10\text{ cm}$</li>
+                                            <li>Jari-jari akhir ($r_2$) = $20\text{ cm}$</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Gunakan Perbandingan Volume:</strong>
+                                        <p class="mt-1">Kita tahu bahwa rumus volume bola adalah $V = \frac{4}{3}\pi r^3$. Karena nilai $\frac{4}{3}\pi$ bersifat konstan (tetap), maka volume bola berbanding lurus dengan pangkat tiga jari-jarinya ($V \propto r^3$).</p>
+                                        <div class="my-2 bg-slate-50 p-2 rounded text-xs font-mono">
+                                            $$\frac{V_2}{V_1} = \frac{\frac{4}{3}\pi r_2^3}{\frac{4}{3}\pi r_1^3} = \left(\frac{r_2}{r_1}\right)^3$$
+                                        </div>
+                                    </li>
+                                    <li><strong>Hitung Rasionya:</strong>
+                                        <div class="my-2 bg-slate-50 p-2 rounded text-xs font-mono">
+                                            $$\frac{V_2}{V_1} = \left(\frac{20}{10}\right)^3 = (2)^3 = 8$$
+                                        </div>
+                                    </li>
+                                </ol>
+                                <p class="text-emerald-600 font-bold mt-2">✓ Jadi, volume balon setelah ditiup bertambah menjadi $8$ kali lipat semula.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latihan Terbimbing / Kuis Interaktif -->
+        <section id="latihan" class="scroll-mt-20">
+            <div class="bg-gradient-to-tr from-slate-900 to-indigo-950 text-white rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-indigo-600 p-2.5 rounded-xl">
+                            <i data-lucide="edit-3" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Kuis & Latihan Mandiri Terbimbing</h2>
+                            <p class="text-xs text-indigo-300">Uji pemahamanmu secara langsung. Isi semua kolom jawaban di bawah!</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span id="score-badge" class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">Skor: 0/3</span>
+                    </div>
+                </div>
+
+                <div class="mt-8 space-y-8">
+                    <!-- Soal 1 -->
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-500 text-slate-950 text-xs font-bold px-2 py-0.5 rounded">Soal 1</span>
+                            <span class="text-xs text-slate-400">Prisma Segitiga</span>
+                        </div>
+                        <p class="text-slate-200 text-sm md:text-base leading-relaxed">
+                            Sebuah prisma tegak memiliki alas berbentuk segitiga siku-siku dengan panjang sisi siku-siku $6\text{ cm}$ and $8\text{ cm}$. Jika tinggi prisma tersebut adalah $12\text{ cm}$, hitunglah <strong>Volume</strong> prisma tersebut (dalam satuan $\text{cm}^3$)!
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+                            <div class="w-full sm:max-w-xs">
+                                <label class="block text-xs text-slate-400 mb-1">Masukkan Jawaban (Angka saja):</label>
+                                <input type="number" id="input-q1" placeholder="Contoh: 120" class="w-full bg-slate-950 border border-white/20 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                            </div>
+                            <button onclick="checkQuestion(1, 288)" class="sm:self-end bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-md flex items-center gap-1.5">
+                                <i data-lucide="check" class="w-4 h-4"></i> Cek Jawaban
+                            </button>
+                        </div>
+                        <!-- Feedback Box -->
+                        <div id="feedback-q1" class="hidden text-xs p-3 rounded-lg border"></div>
+                    </div>
+
+                    <!-- Soal 2 -->
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-500 text-slate-950 text-xs font-bold px-2 py-0.5 rounded">Soal 2</span>
+                            <span class="text-xs text-slate-400">Kerucut</span>
+                        </div>
+                        <p class="text-slate-200 text-sm md:text-base leading-relaxed">
+                            Sebuah kerucut memiliki panjang jari-jari $7\text{ cm}$ dan garis pelukis ($s$) $10\text{ cm}$. Hitunglah <strong>Luas Selimut</strong> kerucut tersebut! (Gunakan $\pi = \frac{22}{7}$, tulis jawaban angka saja dalam satuan $\text{cm}^2$)
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+                            <div class="w-full sm:max-w-xs">
+                                <label class="block text-xs text-slate-400 mb-1">Masukkan Jawaban (Angka saja):</label>
+                                <input type="number" id="input-q2" placeholder="Contoh: 150" class="w-full bg-slate-950 border border-white/20 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                            </div>
+                            <button onclick="checkQuestion(2, 220)" class="sm:self-end bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-md flex items-center gap-1.5">
+                                <i data-lucide="check" class="w-4 h-4"></i> Cek Jawaban
+                            </button>
+                        </div>
+                        <div id="feedback-q2" class="hidden text-xs p-3 rounded-lg border"></div>
+                    </div>
+
+                    <!-- Soal 3 -->
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-500 text-slate-950 text-xs font-bold px-2 py-0.5 rounded">Soal 3</span>
+                            <span class="text-xs text-slate-400">Bola</span>
+                        </div>
+                        <p class="text-slate-200 text-sm md:text-base leading-relaxed">
+                            Sebuah kubah masjid berbentuk setengah bola dengan diameter $14\text{ meter}$. Jika permukaan luar kubah tersebut akan dicat, berapa luas bidang kubah yang akan dicat (dalam $\text{m}^2$)? (Gunakan $\pi = \frac{22}{7}$)
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+                            <div class="w-full sm:max-w-xs">
+                                <label class="block text-xs text-slate-400 mb-1">Masukkan Jawaban (Angka saja):</label>
+                                <input type="number" id="input-q3" placeholder="Contoh: 300" class="w-full bg-slate-950 border border-white/20 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                            </div>
+                            <button onclick="checkQuestion(3, 308)" class="sm:self-end bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-md flex items-center gap-1.5">
+                                <i data-lucide="check" class="w-4 h-4"></i> Cek Jawaban
+                            </button>
+                        </div>
+                        <div id="feedback-q3" class="hidden text-xs p-3 rounded-lg border"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="box" class="w-5 h-5 text-indigo-500"></i>
+                <span class="font-bold text-slate-200">GeoSpace Interactive Classroom</span>
+            </div>
+            <p>© 2026 GeoSpace. Didesain untuk Pembelajaran Matematika Konstruktif & Kolaboratif.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Handlers -->
+    <script>
+        // Inisialisasi ikon Lucide
+        lucide.createIcons();
+
+        // Handler untuk Warm Up toggle
+        function toggleWarmUp(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // Handler untuk navigasi Tab
+        function switchTab(category) {
+            // Sembunyikan semua tab content
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            // Tampilkan yang dipilih
+            document.getElementById(`tab-${category}`).classList.remove('hidden');
+
+            // Reset class active tombol
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn text-slate-600 hover:text-slate-900 px-3 py-2.5 rounded-lg transition";
+            });
+            
+            // Set active tombol terpilih
+            const activeBtn = document.getElementById(`btn-${category}`);
+            activeBtn.className = "tab-btn bg-white text-indigo-600 px-3 py-2.5 rounded-lg shadow-sm transition";
+        }
+
+        // Handler Accordion Pembahasan Soal
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const buttonText = document.getElementById(`text-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                buttonText.innerText = "Sembunyikan Pembahasan";
+            } else {
+                content.classList.add('hidden');
+                buttonText.innerText = "Tampilkan Pembahasan";
+            }
+        }
+
+        // Tracking skor latihan
+        let solved = { 1: false, 2: false, 3: false };
+
+        // Fungsi cek jawaban latihan mandiri
+        function checkQuestion(qNum, correctAnswer) {
+            const inputEl = document.getElementById(`input-q${qNum}`);
+            const feedbackEl = document.getElementById(`feedback-q${qNum}`);
+            const userAnswer = parseInt(inputEl.value);
+
+            if (isNaN(userAnswer)) {
+                feedbackEl.className = "text-xs p-3 rounded-lg border bg-amber-500/10 border-amber-500/30 text-amber-300 mt-3";
+                feedbackEl.innerHTML = "⚠️ Masukkan angka jawaban terlebih dahulu sebelum mengecek!";
+                feedbackEl.classList.remove('hidden');
+                return;
+            }
+
+            if (userAnswer === correctAnswer) {
+                feedbackEl.className = "text-xs p-3 rounded-lg border bg-emerald-500/10 border-emerald-500/30 text-emerald-300 mt-3";
+                
+                // Beri penjelasan spesifik di feedback
+                let explanation = "";
+                if (qNum === 1) {
+                    explanation = "<strong>Luar biasa! Benar!</strong> Luas Alas = $1/2 \\times 6 \\times 8 = 24\\text{ cm}^2$. Volume = Luas Alas $\\times$ tinggi = $24 \\times 12 = 288\\text{ cm}^3$.";
+                } else if (qNum === 2) {
+                    explanation = "<strong>Luar biasa! Benar!</strong> Luas Selimut Kerucut = $\\pi r s = \\frac{22}{7} \\times 7 \\times 10 = 220\\text{ cm}^2$.";
+                } else if (qNum === 3) {
+                    explanation = "<strong>Luar biasa! Benar!</strong> Luas permukaan setengah bola = $2 \\pi r^2 = 2 \\times \\frac{22}{7} \\times (7)^2 = 2 \\times 154 = 308\\text{ m}^2$.";
+                }
+
+                feedbackEl.innerHTML = `✓ ${explanation}`;
+                solved[qNum] = true;
+            } else {
+                feedbackEl.className = "text-xs p-3 rounded-lg border bg-rose-500/10 border-rose-500/30 text-rose-300 mt-3";
+                feedbackEl.innerHTML = `✗ <strong>Jawabanmu belum tepat.</strong> Silakan teliti kembali perhitunganmu atau periksa kembali rumus yang digunakan!`;
+                solved[qNum] = false;
+            }
+
+            feedbackEl.classList.remove('hidden');
+            
+            // Rerender rumus baru dalam feedback jika ada
+            MathJax.typesetPromise([feedbackEl]);
+
+            // Update score
+            const score = Object.values(solved).filter(Boolean).length;
+            document.getElementById('score-badge').innerText = `Skor: ${score}/3`;
+        }
+    </script>
+</body>
+</html>
